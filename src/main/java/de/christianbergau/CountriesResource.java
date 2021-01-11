@@ -1,6 +1,7 @@
 package de.christianbergau;
 
 import java.util.Set;
+import java.util.concurrent.CompletionStage;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -20,5 +21,11 @@ public class CountriesResource {
     @Path("/name/{name}")
     public Set<Country> name(@PathParam String name) {
         return countriesService.getByName(name);
+    }
+
+    @GET
+    @Path("/name-async/{name}")
+    public CompletionStage<Set<Country>> nameAsync(@PathParam String name) {
+        return countriesService.getByNameAsync(name);
     }
 }
