@@ -15,17 +15,17 @@ public class CountriesResource {
 
     @Inject
     @RestClient
-    CountriesService countriesService;
+    CountryClient countryClient;
 
     @GET
     @Path("/name/{name}")
     public Set<Country> name(@PathParam String name) {
-        return countriesService.getByName(name);
+        return countryClient.getByName(name);
     }
 
     @GET
     @Path("/name-async/{name}")
     public CompletionStage<Set<Country>> nameAsync(@PathParam String name) {
-        return countriesService.getByNameAsync(name);
+        return countryClient.getByNameAsync(name);
     }
 }

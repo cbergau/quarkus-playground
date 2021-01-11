@@ -12,7 +12,7 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 @Path("/v2")
 @RegisterRestClient(configKey="country-api")
-public interface CountriesService {
+public interface CountryClient {
 
     @GET
     @Path("/name/{name}")
